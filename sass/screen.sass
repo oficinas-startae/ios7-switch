@@ -1,0 +1,92 @@
+// Set the global compass vars.
+$legacy-support-for-ie6: false
+$legacy-support-for-ie7: false
+$legacy-support-for-ie8: true
+$legacy-support-for-mozilla: false
+
+// Import the normalize plugin
+@import normalize
+@import compass
+
+*
+  +box-sizing(border-box)
+
+body
+  background-color: #e5e5e5
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  padding: 100px 0
+  text-align: center
+
+main
+  margin: 0 auto
+  width: 80%
+
+.panel
+  +border-radius(8px)
+  +box-shadow(0 0 1px rgba(#000, .3))
+  background-color: #fff
+
+  .panel-header
+    h1
+      border-bottom: 1px solid #e5e5e5
+      color: #666
+      font-size: 20px
+      font-weight: 300
+      margin: 0
+      padding: 20px
+
+  .row
+    border-bottom: 1px solid #e5e5e5
+    padding: 20px
+
+
+.toggle
+  +border-radius(100px)
+  +box-shadow(inset 0 0 2px 0 rgba(#000, .10))
+  +inline-block
+  background-color: #dddddd
+  height: 40px
+  position: relative
+  width: 60px
+
+  input[type="checkbox"]
+    +appearance(none)
+    +opacity(0)
+    cursor: pointer
+    display: block
+    height: 100%
+    position: relative
+    width: 100%
+    z-index: 2
+
+    &:checked ~ .track
+      +box-shadow(inset 0 0 0 40px #44da60)
+
+    &:checked ~ .switch
+      +transition(left .4s ease .05s, right .4s ease)
+      left: 22px
+      right: 2px
+
+
+.switch, .track
+  display: block
+  position: absolute
+
+.switch
+  +border-radius(100px)
+  +box-shadow(0 1px 4px rgba(#000, .25))
+  +transition(left .4s ease, right .4s ease .05s)
+  background-color: #fff
+  bottom: 2px
+  left: 2px
+  right: 22px
+  top: 2px
+  z-index: 1
+
+.track
+  +border-radius(100px)
+  +transition(.4s ease)
+  bottom: 0
+  left: 0
+  right: 0
+  top: 0
