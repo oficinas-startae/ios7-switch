@@ -1,0 +1,110 @@
+// Set the global compass vars.
+$legacy-support-for-ie6: false
+$legacy-support-for-ie7: false
+$legacy-support-for-ie8: true
+$legacy-support-for-mozilla: false
+
+// Import the normalize plugin
+@import normalize
+@import compass/css3
+
+// Variables
+$gray-light: #e5e5e5
+$toogle-bg: #ddd
+$toogle-active-bg: #4cd966
+$toogle-handle-bg: #fff
+$toogle-width: 60px
+$toogle-height: 40px
+$toogle-radius: 100px
+$switch-margin: 2px
+
+*
+  +box-sizing(border-box)
+
+body
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  background-color: $gray-light
+  padding: 100px 0
+  color: #666
+  text-align: center
+
+main
+  margin: 0 auto
+  width: 80%
+
+
+// Panel
+.panel
+  +border-radius(4px)
+  +box-shadow(0 0 1px rgba(black, .3))
+  background-color: white
+
+  .panel-title
+    font-size: 20px
+    font-weight: 300
+    text-align: center
+    border-bottom: 1px solid $gray-light
+    padding: 15px 10px
+    margin: 0
+
+  .row
+    border-bottom: 1px solid $gray-light
+    padding: 10px
+
+    &:last-of-type
+      border-bottom-color: transparent
+
+
+
+.toggle
+  +inline-block
+  box-shadow: inset 0 0 2px 1px rgba(#000, .05)
+  border-radius: $toogle-radius
+  background-color: $toogle-bg
+  height: $toogle-height
+  overflow: hidden
+  position: relative
+  width: $toogle-width
+
+  input[type="checkbox"]
+    +opacity(0)
+    +appearance(none)
+    cursor: pointer
+    display: block
+    height: 100%
+    width: 100%
+    z-index: 2
+    position: relative
+
+    &:checked ~ .track
+      box-shadow: inset 0 0 0 ($toogle-height) $toogle-active-bg
+
+    &:checked ~ .switch
+      +transition(left .3s ease .05s, right .3s ease)
+      right: $switch-margin
+      left: 22px
+
+.switch, .track
+  display: block
+  position: absolute
+
+.switch
+  +transition(left .3s ease, right .3s ease .05s)
+  left: $switch-margin
+  top: $switch-margin
+  bottom: $switch-margin
+  right: ($toogle-width/3)+$switch-margin
+  background-color: #fff
+  border-radius: 36px
+  z-index: 1
+  box-shadow: 0 1px 2px rgba(#000, .2)
+
+.track
+  +transition(.3s ease)
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  box-shadow: inset 0 0 0 1px rgba(#000, .05)
+  border-radius: 40px
+
